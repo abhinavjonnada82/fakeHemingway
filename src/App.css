@@ -15,10 +15,10 @@
 }
 
 .text-area {
+  position: absolute;
   height: 200px !important;
   width: 750px;
   font-size: 15px;
-  position: absolute;
   top: 20px;
 }
 
@@ -31,4 +31,13 @@
 .align-field {
   position:absolute;
   left:-80px;
+}
+
+.output-area {
+  position: absolute;
+  top: 280px;
+  left:-80px;
+  height: 180px;
+  width: 750px;
+  font-size: 18px;
 }
