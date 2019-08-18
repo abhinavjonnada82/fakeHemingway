@@ -17,13 +17,13 @@ class CounterAreaField extends Component  {
                         Aim for {Math.round(this.props.data.paragraphs / 3 )} or less
                     </div>
                     <div className="alert alert-info" role="alert">
-                        {this.props.data.complex} phrase could be simplified
+                        {this.props.data.complex} phrase{this.props.data.complex > 1 ? "s" : ""} could be simplified.
                     </div>
                     <div className="alert alert-warning" role="alert">
-                        {this.props.data.hardSentences} of 10 sentences are hard to read
+                        {this.props.data.hardSentences} of {this.props.data.sentences} sentences {this.props.data.complex > 1 ? "s are" : "is"} hard to read
                     </div>
                     <div className="alert alert-danger" role="alert">
-                        {this.props.data.veryHardSentences} of 10 sentences are very hard to read
+                        {this.props.data.veryHardSentences} of {this.props.data.sentences} sentences {this.props.data.complex > 1 ? "s are" : "is"} very hard to read
                     </div>
                 </div>
             </div>

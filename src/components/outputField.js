@@ -30,10 +30,10 @@ class outputAreaField extends Component {
                 return sent;
             } else if (level >= 10 && level < 14) {
                 data.hardSentences += 1;
-                return `<span class="hardSentence">${sent}</span>`;
+                // return `<span class="hardSentence">${sent}</span>`;
             } else if (level >= 14) {
                 data.veryHardSentences += 1;
-                return `<span class="veryHardSentence">${sent}</span>`;
+                // return `<span class="veryHardSentence">${sent}</span>`;
             } else {
                 return sent;
             }
@@ -160,15 +160,15 @@ class outputAreaField extends Component {
         let text = this.props.description
         let paragraphs = text.split("\n")
         let hardSentences = paragraphs.map(p => this.getDifficultSentences(p));
-        let inP = hardSentences.map(para => `<p>${para}</p>`);
+        let inP = hardSentences.map(para => para);
         data.paragraphs = paragraphs.length;
         console.log(data);
-        // this.counters()
+
         return (
             <div>
             <div className="card output-area">
                 <div className="card-body">
-                    <p>{ inP.join(" ") }</p>
+                    { inP.join(" ") }
                 </div>
             </div>
                 <div className="row">
