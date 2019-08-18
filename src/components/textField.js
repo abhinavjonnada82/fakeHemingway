@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 const style = {
     position: 'absolute',
-    top: '250px'
+    top: '230px'
 };
 
 class TextAreaField extends Component  {
@@ -24,7 +24,7 @@ class TextAreaField extends Component  {
     }
     render() {
         return (
-            <div>
+            <div className="align-field">
                 <form onSubmit={this.submitHandler}>
                     <div className="form-group">
                         <textarea
