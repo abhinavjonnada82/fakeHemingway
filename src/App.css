@@ -17,13 +17,8 @@
 
 .text-area {
   height: 200px !important;
-  width: 800px;
+  width: 750px;
   font-size: 15px;
   position: absolute;
 }
 
-.button-area {
-  position: absolute;
-  align-items: center;
-  justify-content: center;
-}

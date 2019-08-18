@@ -1,5 +1,10 @@
 import React, { Component } from "react";
 
+const style = {
+    position: 'absolute',
+    top: '250px'
+};
+
 class TextAreaField extends Component  {
     constructor(props){
         super(props)
@@ -29,16 +34,8 @@ class TextAreaField extends Component  {
                         />
                     </div>
                     <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
 
-                    <div className="form-group">
+                    <div className="form-group" style = {style}>
                         <input  type="submit" className="btn btn-primary btn" value="Submit"  />
                     </div>
                 </form>
