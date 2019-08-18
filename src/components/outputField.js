@@ -162,7 +162,6 @@ class outputAreaField extends Component {
         let hardSentences = paragraphs.map(p => this.getDifficultSentences(p));
         let inP = hardSentences.map(para => para);
         data.paragraphs = paragraphs.length;
-        console.log(data);
 
         return (
             <div>
