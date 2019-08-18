@@ -26,6 +26,8 @@
   width: 450px;
   position: absolute;
   top: 20px;
+  left: 800px;
+
 }
 
 .align-field {
@@ -37,7 +39,7 @@
   position: absolute;
   top: 280px;
   left:-80px;
-  height: 180px;
+  height: 300px;
   width: 750px;
   font-size: 18px;
 }
