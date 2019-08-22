@@ -1,4 +1,4 @@
-## Fake Hemmingway detects passive sentences, too hard & long senteces, adverbs, incorrect phrases
+## Fake Hemmingway detects passive sentences, too hard & long senteces, adverbs, & incorrect phrases
 
 ## Converted Vanilla JS App into React JS
 
