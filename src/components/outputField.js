@@ -13,6 +13,7 @@ let data = {
 };
 
 class outputAreaField extends Component {
+    highlightedText = []
     getDifficultSentences(p) {
         let sentences = this.getSentenceFromParagraph(p + "")
         data.sentences += sentences.length
@@ -60,7 +61,7 @@ class outputAreaField extends Component {
                     lyWords[word.replace(/[^a-z0-9. ]/gi, "").toLowerCase()] === undefined
                 ) {
                     data.adverbs += 1
-                    // return `<span class="adverb">${word}</span>`;
+                     this.highlightedText.push(<span className="adverb">{word}</span>)
                 } else {
                     return word
                 }
@@ -146,7 +147,7 @@ class outputAreaField extends Component {
         return level <= 0 ? 0 : level;
     }
 
-    render() {
+    render(word) {
         data = {
             paragraphs: 0,
             sentences: 0,
@@ -167,6 +168,7 @@ class outputAreaField extends Component {
             <div>
             <div className="card output-area">
                 <div className="card-body">
+                    <span className="adverb">{this.highlightedText}</span>
                     { inP.join(" ") }
                 </div>
             </div>
