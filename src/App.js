@@ -53,10 +53,6 @@ class App extends Component  {
                                 <br />
                             </div>
                         </div>
-
-                        {/*<div className="col-xl-4">*/}
-                        {/*    <CounterAreaField/>*/}
-                        {/*</div>*/}
                         <br />
                         <div className="container">
                         <div className="row">

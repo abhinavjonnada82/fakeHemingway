@@ -3,7 +3,6 @@ import React, { Component } from "react";
 
 class CounterAreaField extends Component  {
     render() {
-        console.log(this.props.data.adverbs)
         return (
 
             <div className="card counter-area">

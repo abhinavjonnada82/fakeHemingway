@@ -31,10 +31,10 @@ class outputAreaField extends Component {
                 return sent;
             } else if (level >= 10 && level < 14) {
                 data.hardSentences += 1;
-                // return `<span class="hardSentence">${sent}</span>`;
+                return this.highlightedText.push(<span class="hardSentence">&nbsp;{sent}&nbsp;</span>)
             } else if (level >= 14) {
                 data.veryHardSentences += 1;
-                // return `<span class="veryHardSentence">${sent}</span>`;
+                return this.highlightedText.push(<span class="veryHardSentence">&nbsp;{sent}&nbsp;</span>)
             } else {
                 return sent;
             }
@@ -61,7 +61,7 @@ class outputAreaField extends Component {
                     lyWords[word.replace(/[^a-z0-9. ]/gi, "").toLowerCase()] === undefined
                 ) {
                     data.adverbs += 1
-                     this.highlightedText.push(<span className="adverb">{word}</span>)
+                    this.highlightedText.push(<span className="adverb">&nbsp;{word}&nbsp;</span>)
                 } else {
                     return word
                 }
@@ -84,12 +84,11 @@ class outputAreaField extends Component {
         if (index >= 0) {
             data[a[type]] += 1
             sentence =
-                console.log(sentence.slice(0, index)) +
-                // `<span class="${type}">` +
-                // sentence.slice(index, index + string.length) +
-                // "</span>" +
+                this.highlightedText.push(
+                <span className="{type}">
+                    &nbsp; {sentence.slice(index, index + string.length)} &nbsp;
+                </span>) +
                 this.findAndSpan(sentence.slice(index + string.length), string, type)
-            //console.log(sentence)
         }
         return sentence
     }
@@ -114,9 +113,10 @@ class outputAreaField extends Component {
         let index = words.indexOf(match);
         if (preWords.indexOf(words[index - 1]) >= 0) {
             data.passiveVoice += 1;
-            // originalWords[index - 1] =
-            //     '<span class="passive">' + originalWords[index - 1];
-            // originalWords[index] = originalWords[index] + "</span>";
+            originalWords[index - 1] =
+                this.highlightedText.push(
+                <span class="passive">&nbsp; { originalWords[index - 1]} &nbsp;
+                    {originalWords[index] = originalWords[index] }&nbsp; </span>)
             let next = this.checkPrewords(
                 words.slice(index + 1),
                 originalWords.slice(index + 1),
@@ -161,14 +161,14 @@ class outputAreaField extends Component {
         let text = this.props.description
         let paragraphs = text.split("\n")
         let hardSentences = paragraphs.map(p => this.getDifficultSentences(p));
-        let inP = hardSentences.map(para => para);
+        let inP = hardSentences.map(para => this.highlightedText.push(<p>&nbsp;{para}&nbsp;</p>))
         data.paragraphs = paragraphs.length;
 
         return (
             <div>
             <div className="card output-area">
                 <div className="card-body">
-                    <span className="adverb">{this.highlightedText}</span>
+                    {this.highlightedText.map((elements) => elements)}
                     { inP.join(" ") }
                 </div>
             </div>
@@ -560,6 +560,48 @@ class outputAreaField extends Component {
     }
 
     getQualifyingWords() {
+        return {
+            "i believe": 1,
+            "i consider": 1,
+            "i don't believe": 1,
+            "i don't consider": 1,
+            "i don't feel": 1,
+            "i don't suggest": 1,
+            "i don't think": 1,
+            "i feel": 1,
+            "i hope to": 1,
+            "i might": 1,
+            "i suggest": 1,
+            "i think": 1,
+            "i was wondering": 1,
+            "i will try": 1,
+            "i wonder": 1,
+            "in my opinion": 1,
+            "is kind of": 1,
+            "is sort of": 1,
+            just: 1,
+            maybe: 1,
+            perhaps: 1,
+            possibly: 1,
+            "we believe": 1,
+            "we consider": 1,
+            "we don't believe": 1,
+            "we don't consider": 1,
+            "we don't feel": 1,
+            "we don't suggest": 1,
+            "we don't think": 1,
+            "we feel": 1,
+            "we hope to": 1,
+            "we might": 1,
+            "we suggest": 1,
+            "we think": 1,
+            "we were wondering": 1,
+            "we will try": 1,
+            "we wonder": 1
+        };
+    }
+
+    getJustifierWords() {
         return {
             "i believe": 1,
             "i consider": 1,
